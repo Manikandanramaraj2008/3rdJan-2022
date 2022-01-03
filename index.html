@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+// var url= "------------url to be placed from mock API------------";
+
+// GET R-read data
+function getdata(){
+
+ fetch(url)
+.then((resp)=>resp.json())
+.then((data)=>console.log(data))
+.catch((error)=>console.log(error));
+}
+getdata();
+function createdata(){
+
+   let data= {
+       name:"mani ram",
+       email:"acb@guvi.com"
+   };
+
+   fetch(url,{
+    method:"POST",
+    body:JSON.stringify(data),
+    headers:{
+        "content-type":"application/json,charset=UTF-8",
+    }
+}).then((resp)=>resp.json())
+    .then((data)=>console.log(data))
+    .catch((error)=>console.log(error));
+
+}
+createdata();
+
+function updatedata(){
+
+let data= {
+    name:"mani ram",
+    email:"acb@guvi.com"
+};
+
+// id 7th added . fornt universal text format
+fetch(url+"/7",{
+ method:"PUT",
+ body:JSON.stringify(data),
+ headers:{
+     "content-type":"application/json,charset=UTF-8",
+ }
+}).then((resp)=>resp.json())
+ .then((data)=>console.log(data))
+ .catch((error)=>console.log(error));
+
+}
+updatedata()
+
+function deletedata(){
+
+// id 7th deleted 
+fetch(url+"/7",{
+ 
+    method:"DELETE",
+ 
+ 
+}).then((resp)=>resp.json())
+ .then((data)=>console.log(data))
+ .catch((error)=>console.log(error));
+
+}
+deletedata()
+
+</script>
+
+</body>
+</html>
